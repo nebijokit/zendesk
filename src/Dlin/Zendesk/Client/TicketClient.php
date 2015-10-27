@@ -149,7 +149,7 @@ class TicketClient extends BaseClient
 
         $extraData = $requester ? array('requester'=>$requester) : null;
 
-        return parent::saveEntity($ticket, 'tickets/'.$ticket->getExternalId().'json', $extraData);
+        return parent::saveEntity($ticket, 'tickets/'.$ticket->getId().'json', $extraData);
     }
 
     /**
