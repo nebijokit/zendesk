@@ -138,8 +138,19 @@ class TicketClient extends BaseClient
         return parent::saveEntity($ticket, 'tickets.json', $extraData);
     }
 
+    /**
+     * Update ticket info
+     *
+     * @param Ticket $ticket
+     * @param TicketRequester $requester
+     * @return \Dlin\Zendesk\Result\ChangeResult|null
+     */
+    public function update(Ticket $ticket, TicketRequester $requester=null){
 
+        $extraData = $requester ? array('requester'=>$requester) : null;
 
+        return parent::saveEntity($ticket, 'tickets/'.$ticket->getExternalId().'json', $extraData);
+    }
 
     /**
      *
