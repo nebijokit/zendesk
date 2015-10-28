@@ -179,7 +179,13 @@ class TicketComment extends BaseEntity
         return $this->addChange('protected');
     }
 
-
-
-
+    /**
+     * @param $authorId
+     * @return $this
+     */
+    public function setAuthorId($authorId)
+    {
+        $this->author_id = $authorId;
+        return $this->addChange('author_id');
+    }
 }
